@@ -1,14 +1,20 @@
 .heading-title {
   padding-top: 6rem;
-  padding-bottom: 6rem;
   font-size: 69px;
   white-space: pre-wrap;
-  max-width: 300px;
+}
+
+.heading-description {
+  padding-bottom: 6rem;
 }
 
 @media (max-width: 600px) {
   .heading-title {
     font-size: 3rem;
     padding: 2rem 0;
+  }
+
+  .heading-description {
+    padding-bottom: 2rem;
   }
 }

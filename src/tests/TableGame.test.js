@@ -3,7 +3,6 @@ import TableGames from '../components/TableGames';
 import games from '../mock/gamesMock.json'
 import { customRender, fireEvent } from './utils/test-utils';
 import * as ApiService from '../services/ApiService'
-import waitForExpect from 'wait-for-expect';
 
 beforeEach(() => {
   ApiService.deleteGame = jest.fn()

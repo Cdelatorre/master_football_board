@@ -1,8 +1,6 @@
 td, th {
   padding: 1rem !important;
-}
-
-td, th {
+  text-transform: capitalize;
   border-width: 3px !important;
   border-color: #242628 !important;
   background-color: #292b2e;

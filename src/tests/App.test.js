@@ -12,5 +12,6 @@ beforeEach(() => {
 test('Link changes the class when hovered', () => {
   const { container } = customRender(<App />);
 
+  expect(container.querySelector('#App').nodeName).toBe('DIV')
   expect(ApiService.getGames).toHaveBeenCalledTimes(1)
 });

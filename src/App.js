@@ -26,7 +26,7 @@ const App = () => {
   }, [fetchData])
 
   return (
-    <div>
+    <div id="App">
       <Header />
       <div className="container">
         <div className="row">
