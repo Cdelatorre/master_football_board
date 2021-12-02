@@ -46,8 +46,7 @@ const TableGames = ({ games, fetchData, loading }) => {
                       </button>
                     </td>
                   </tr>
-                )
-              }
+                )}
               )}
             </tbody>
           </table>

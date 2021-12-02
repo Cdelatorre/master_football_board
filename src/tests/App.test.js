@@ -6,7 +6,7 @@ import App from '../App';
 
 beforeEach(() => {
   ApiService.getGames = jest.fn()
-  .mockImplementation(() => Promise.resolve(games))
+    .mockImplementation(() => Promise.resolve(games))
 })
 
 test('Link changes the class when hovered', () => {

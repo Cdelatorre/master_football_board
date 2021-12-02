@@ -20,9 +20,9 @@ thead td, thead th {
   overflow: hidden;
   border-radius: 8px;
 }
+
 @media (max-width: 600px) {
   td, th {
     padding: 0.5rem !important;
   }
-  
 }

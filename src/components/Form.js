@@ -19,7 +19,7 @@ const Form = ({ fetchData }) => {
         fetchData();
         reset();
       })
-      .catch((err) =>{
+      .catch((err) => {
         setError(true)
       })
   };
