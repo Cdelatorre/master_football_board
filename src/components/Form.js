@@ -33,7 +33,7 @@ const Form = ({ fetchData }) => {
               <label className="text-light">Home team</label>
               <input
                 {...register("homeName")}
-                autocomplete="off"
+                autoComplete="off"
                 onFocus={() => setError(false)}
                 type="text"
                 className="form-control"
@@ -45,7 +45,7 @@ const Form = ({ fetchData }) => {
               <label className="text-light">Score</label>
               <input
                 {...register("homeScore")}
-                autocomplete="off"
+                autoComplete="off"
                 onFocus={() => setError(false)}
                 type="number"
                 min="0"
@@ -61,7 +61,7 @@ const Form = ({ fetchData }) => {
               <label className="text-light">Away team</label>
               <input
                 {...register("awayName")}
-                autocomplete="off"
+                autoComplete="off"
                 onFocus={() => setError(false)}
                 type="text"
                 className="form-control"
@@ -73,7 +73,7 @@ const Form = ({ fetchData }) => {
               <label className="text-light">Score</label>
               <input
                 {...register("awayScore")}
-                autocomplete="off"
+                autoComplete="off"
                 onFocus={() => setError(false)}
                 type="number"
                 min="0"

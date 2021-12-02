@@ -4,14 +4,12 @@ import Header from './components/Header';
 import Form from './components/Form';
 import { getGames } from './services/ApiService';
 import './App.css'
-import Spinner from './components/Spinner';
 
 const App = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
   const fetchData = useCallback(() => {
-    console.log('entro')
     setLoading(true)
     getGames()
       .then(data => {
@@ -25,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div>
