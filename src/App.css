@@ -1,0 +1,30 @@
+body {
+  background-color: #242628;
+  min-height: 100vh;
+}
+
+input {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.football-logo {
+  height: 20vmin;
+  pointer-events: none;
+  width: 150px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .football-logo {
+    animation: football-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes football-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

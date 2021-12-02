@@ -1,0 +1,15 @@
+.football-form {
+  width: 100%;
+}
+
+.football-form .form-group {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 8px;
+}
+
+.football-form .form-group.invalid-form {
+  border: 3px solid rgb(224, 14, 14);
+  border-radius: 8px;
+}

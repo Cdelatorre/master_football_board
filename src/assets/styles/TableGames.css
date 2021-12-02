@@ -1,0 +1,30 @@
+td, th {
+  padding: 1rem !important;
+}
+
+td, th {
+  border-width: 3px !important;
+  border-color: #242628 !important;
+  background-color: #292b2e;
+}
+
+.table-content {
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+}
+
+thead td, thead th {
+  border-color: transparent !important;
+  background-color: #3c3e42;
+}
+
+.table-dark {
+  overflow: hidden;
+  border-radius: 8px;
+}
+@media (max-width: 600px) {
+  td, th {
+    padding: 0.5rem !important;
+  }
+  
+}
