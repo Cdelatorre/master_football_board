@@ -8,14 +8,13 @@ const TableGames = ({ games, fetchData, loading }) => {
   const handleDelete = (id) => {
     deleteGame(id)
       .then(() => {
-        console.log('entro then')
         fetchData()
       })
       .catch(err => console.log('something went wrong', err))
   }
 
   return (
-    <div className="pb-4">
+    <div className="TableGames pb-4">
       <h4 className="text-light mb-3">Games table</h4>
       <div className="table-content">
         {!loading
@@ -41,7 +40,7 @@ const TableGames = ({ games, fetchData, loading }) => {
                     <td>
                       <button
                         onClick={() => handleDelete(game.id)}
-                        className="btn-sm btn-danger"
+                        className="deleteButton btn-sm btn-danger"
                       >
                         Delete
                       </button>

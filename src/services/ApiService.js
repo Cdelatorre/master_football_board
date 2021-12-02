@@ -6,10 +6,7 @@ const http = axios.create({
 })
 
 http.interceptors.response.use(
-  response => {
-    console.log(response)
-    return response.data
-  },
+  response => response.data,
   error => {
     return Promise.reject(error)
   }
@@ -19,4 +16,4 @@ export const getGames = () => http.get("/summary")
 
 export const saveGame = (body) => http.post("/create", body)
 
-export const deleteGame = (id) => http.post(`/delete/${id}`)
+export const deleteGame = (id) => http.delete(`/delete/${id}`)

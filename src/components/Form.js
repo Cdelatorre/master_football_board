@@ -16,14 +16,16 @@ const Form = ({ fetchData }) => {
 
     saveGame(newGame)
       .then(() => {
-        fetchData()
-        reset()
+        fetchData();
+        reset();
       })
-      .catch(() => setError(true))
+      .catch((err) =>{
+        setError(true)
+      })
   };
 
   return (
-    <div>
+    <div className="Form">
       <h4 className="text-light mb-3">Insert game results</h4>
 
       <form onSubmit={handleSubmit(onSubmit)} className="football-form mb-5">
@@ -78,7 +80,7 @@ const Form = ({ fetchData }) => {
                 type="number"
                 min="0"
                 className="form-control"
-                id="teamHome"
+                id="teamAwayScore"
                 placeholder="0"
               />
             </div>
