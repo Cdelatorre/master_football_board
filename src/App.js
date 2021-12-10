@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import TableGames from './components/TableGames';
 import Header from './components/Header';
 import Form from './components/Form';
-import { getGames } from './services/ApiService';
+import { deleteGame, getGames } from './services/ApiService';
 import './App.css'
 
 const App = () => {
@@ -21,6 +21,14 @@ const App = () => {
       })
   }, [])
 
+  const handleDelete = (id) => {
+    deleteGame(id)
+      .then(() => {
+        fetchData()
+      })
+      .catch(err => console.log('something went wrong', err))
+  }
+
   useEffect(() => {
     fetchData()
   }, [fetchData])
@@ -34,7 +42,7 @@ const App = () => {
             <Form fetchData={fetchData} />
           </div>
           <div className="col-xl-8 col-md-8">
-             <TableGames loading={loading} games={data} fetchData={fetchData} />
+             <TableGames onDelete={handleDelete} loading={loading} games={data} fetchData={fetchData} />
           </div>
         </div>
       </div>

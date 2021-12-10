@@ -1,18 +1,8 @@
 import React from 'react';
-import { deleteGame } from '../services/ApiService';
 import Spinner from './Spinner';
-import './../assets/styles/TableGames.css'
+import '@styles/TableGames.css'
 
-const TableGames = ({ games, fetchData, loading }) => {
-
-  const handleDelete = (id) => {
-    deleteGame(id)
-      .then(() => {
-        fetchData()
-      })
-      .catch(err => console.log('something went wrong', err))
-  }
-
+const TableGames = ({ games, onDelete, loading }) => {
   return (
     <div className="TableGames pb-4">
       <h4 className="text-light mb-3">Games table</h4>
@@ -39,7 +29,7 @@ const TableGames = ({ games, fetchData, loading }) => {
                     <td>{game.homeScore} - {game.awayScore}</td>
                     <td>
                       <button
-                        onClick={() => handleDelete(game.id)}
+                        onClick={() => onDelete(game.id)}
                         className="deleteButton btn-sm btn-danger"
                       >
                         Delete

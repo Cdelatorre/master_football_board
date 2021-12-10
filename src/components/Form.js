@@ -5,7 +5,11 @@ import './../assets/styles/Form.css'
 
 const Form = ({ fetchData }) => {
   const { register, handleSubmit, reset } = useForm();
-  const [error, setError] = useState(false)
+  const [errors, setErrors] = useState(false)
+
+  const handleFocus = () => {
+    setErrors(false)
+  }
 
   const onSubmit = data => {
     const newGame = {
@@ -20,7 +24,7 @@ const Form = ({ fetchData }) => {
         reset();
       })
       .catch((err) => {
-        setError(true)
+        setErrors(err.response.data.errors)
       })
   };
 
@@ -29,14 +33,14 @@ const Form = ({ fetchData }) => {
       <h4 className="text-light mb-3">Insert game results</h4>
 
       <form onSubmit={handleSubmit(onSubmit)} className="football-form mb-5">
-        <div className={`form-group p-4 ${error ? 'invalid-form' : ''}`}>
+        <div className={`form-group p-4 ${errors ? 'invalid-form' : ''}`}>
           <div className="row">
             <div className="col-8">
               <label className="text-light">Home team</label>
               <input
                 {...register("homeName")}
                 autoComplete="off"
-                onFocus={() => setError(false)}
+                onFocus={handleFocus}
                 type="text"
                 className="form-control"
                 id="teamHome"
@@ -48,13 +52,16 @@ const Form = ({ fetchData }) => {
               <input
                 {...register("homeScore")}
                 autoComplete="off"
-                onFocus={() => setError(false)}
+                onFocus={handleFocus}
                 type="number"
                 min="0"
                 className="form-control"
                 id="teamHomeScore"
                 placeholder="0"
               />
+            </div>
+            <div className="col-12">
+              {errors.homeName && <small id="homeName-error" className="text-danger text-small">{errors.homeName.message}</small>}
             </div>
           </div>
 
@@ -64,7 +71,7 @@ const Form = ({ fetchData }) => {
               <input
                 {...register("awayName")}
                 autoComplete="off"
-                onFocus={() => setError(false)}
+                onFocus={handleFocus}
                 type="text"
                 className="form-control"
                 id="teamAway"
@@ -76,7 +83,7 @@ const Form = ({ fetchData }) => {
               <input
                 {...register("awayScore")}
                 autoComplete="off"
-                onFocus={() => setError(false)}
+                onFocus={handleFocus}
                 type="number"
                 min="0"
                 className="form-control"
@@ -84,10 +91,13 @@ const Form = ({ fetchData }) => {
                 placeholder="0"
               />
             </div>
+            <div className="col-12">
+              {errors.awayName && <small id="awayName-error" className="text-danger text-small">{errors.awayName.message}</small>}
+            </div>
           </div>
 
           <div className="mt-4">
-            {error && <small className="text-danger">Check the form!</small>}
+            {errors && <small className="text-danger">Check the form!</small>}
             <button type="submit" className="btn btn-success px-4 mt-2 w-100">Save Game!</button>
           </div>
         </div>

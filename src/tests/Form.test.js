@@ -1,8 +1,8 @@
 import React from 'react';
+import waitForExpect from 'wait-for-expect';
 import Form from '../components/Form';
 import { customRender, fireEvent, cleanup } from './utils/test-utils';
 import * as ApiService from '../services/ApiService'
-import waitForExpect from 'wait-for-expect';
 
 afterEach(() => {
   cleanup()
@@ -30,7 +30,7 @@ describe('Renders form as expected', () => {
 describe('Calls ApiService.saveGame in each case of submitting and manage error', () => {
   test('Form submitting must render error view if form has invalid output', async () => {
     ApiService.saveGame = jest.fn()
-      .mockImplementation(() => Promise.reject({}))
+      .mockImplementation(() => Promise.reject({ response: { data: { errors: {} } } }))
 
     const { container } = renderWithProps();
 
@@ -43,6 +43,37 @@ describe('Calls ApiService.saveGame in each case of submitting and manage error'
     }, { timeout: 5000 });
 
     expect(container.querySelector('.Form form .form-group').classList.contains('invalid-form')).toBeTruthy();
+  });
+
+  test('Form submitting must render specific errors from the api response', async () => {
+    ApiService.saveGame = jest.fn()
+      .mockImplementation(() => Promise.reject({ 
+        response: { 
+          data: { 
+            errors: { 
+              homeName: {
+                message: 'TEST ERROR'
+              }
+            } 
+          } 
+        } 
+      }))
+
+    const { container } = renderWithProps();
+
+    expect(container.querySelector('.Form form .form-group').classList.contains('invalid-form')).toBeFalsy();
+    expect(container.querySelector('#homeName-error')).toBeNull();
+
+    const submitButton = container.querySelector('.Form form .form-group button')
+    fireEvent.click(submitButton)
+
+    await waitForExpect(() => {
+      expect(ApiService.saveGame).toHaveBeenCalledTimes(1)
+    }, { timeout: 5000 });
+
+    expect(container.querySelector('.Form form .form-group').classList.contains('invalid-form')).toBeTruthy();
+    expect(container.querySelector('#homeName-error').nodeName).toBe('SMALL');
+    expect(container.querySelector('#homeName-error').textContent).toBe('TEST ERROR');
   });
 
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import logoImg from '../assets/img/football.svg'
+import logoImg from '@images/football.svg'
 
 const Spinner = () => {
   return (
-    <div className="Spinner d-flex align-items-center justify-content-center" style={{ height: "400px" }}>
+    <div className="Spinner d-flex align-items-center justify-content-center">
       <img id="football-logo" className="px-3 football-logo" src={logoImg} alt="football" />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import * as ApiService from '../services/ApiService'
 import games from '../mock/gamesMock.json'
 import { customRender } from './utils/test-utils.js';
