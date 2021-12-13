@@ -1,4 +1,0 @@
-
-This is more a personal suggestion but why not create handlers in App.js like handleSave => onSave prop and handleDelete => onDelete prop to clearly mark your intent?, 
-
-I've created onDelete handler, because I think it's a good idea that the table form is independent from the content of delete action, it know's that it must do something when pressing on deleteButton but is App.js witch manage this action. On Form.js (in this little webapp), I would like to manage team names errors on it's own state, so I decided to preserve the actual format. But in case that the project becomes bigger, whithout doubt I would create handlers in the father component.

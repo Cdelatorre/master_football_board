@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { saveGame } from '../services/ApiService';
-import './../assets/styles/Form.css'
+import { saveGame } from '@services/ApiService';
+import '@styles/Form.css'
 
 const Form = ({ fetchData }) => {
   const { register, handleSubmit, reset } = useForm();

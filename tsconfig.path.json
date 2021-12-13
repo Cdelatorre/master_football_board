@@ -4,7 +4,9 @@
     "paths": {
       "@/*": ["src/*"],
       "@images/*": ["src/assets/img/*"],
-      "@styles/*": ["src/assets/styles/*"]
+      "@styles/*": ["src/assets/styles/*"],
+      "@services/*": ["src/services/*"],
+      "@components/*": ["src/components/*"]
     }
   }
 }

@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import TableGames from './components/TableGames';
-import Header from './components/Header';
-import Form from './components/Form';
-import { deleteGame, getGames } from './services/ApiService';
+import TableGames from '@components/TableGames';
+import Header from '@components/Header';
+import Form from '@components/Form';
+import { deleteGame, getGames } from '@services/ApiService';
 import './App.css'
 
 const App = () => {

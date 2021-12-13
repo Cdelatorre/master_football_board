@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderBg from '../assets/img/header.jpg'
+import HeaderBg from '@images/header.jpg'
 import '@styles/Header.css'
 
 const Header = () => {
